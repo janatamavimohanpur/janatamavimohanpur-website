@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Janata MaVi Mohanpur</title>
+    <title>Home - Janata MaVi Mohanpur</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,22 +11,21 @@
         <nav>
             <div class="logo">Janata MaVi Mohanpur</div>
             <ul>
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#courses" class="nav-link">Courses</a></li>
-                <li><a href="#notices" class="nav-link">Notices</a></li>
-                <li><a href="#blog" class="nav-link">Blog</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="notices.html">Notices</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- Home Page Section -->
-        <section id="home" class="page-section active">
+        <section id="home">
             <div class="hero">
                 <h1>Welcome to Janata Mahavidyalaya, Mohanpur</h1>
                 <p>Empowering the next generation with quality education.</p>
-                <a href="#courses" class="cta-button nav-link">Explore Our Courses</a>
+                <a href="courses.html" class="cta-button">Explore Our Courses</a>
             </div>
             <div class="home-content">
                 <h2>About Our Institution</h2>
@@ -44,51 +43,6 @@
                         <h3>Positive Environment</h3>
                         <p>A safe, supportive, and engaging atmosphere for all students.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Other Pages (Initially Hidden) -->
-        <section id="courses" class="page-section hidden">
-            <h2>Our Courses & Materials</h2>
-            <div id="courses-list"></div>
-        </section>
-
-        <section id="notices" class="page-section hidden">
-            <h2>Important Notices</h2>
-            <div id="notices-list"></div>
-        </section>
-
-        <section id="blog" class="page-section hidden">
-            <h2>School Blog & Events</h2>
-            <div id="blog-posts"></div>
-        </section>
-
-        <!-- Contact Page Section -->
-        <section id="contact" class="page-section hidden">
-            <h2>Get In Touch</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p><strong>Address:</strong> Mohanpur, Saptari, Nepal</p>
-                    <p><strong>Email:</strong> info@janatamavimohanpur.com.np</p>
-                    <p><strong>Phone:</strong> +977-XXXXXXXXXX</p>
-                </div>
-                <div class="contact-form">
-                    <h3>Send us a Message</h3>
-                    <form id="contact-form-element">
-                        <label for="Name">Full Name</label>
-                        <input type="text" id="Name" name="Name" required>
-                        
-                        <label for="Email">Email Address</label>
-                        <input type="email" id="Email" name="Email" required>
-                        
-                        <label for="Message">Message</label>
-                        <textarea id="Message" name="Message" rows="5" required></textarea>
-                        
-                        <button type="submit">Send Message</button>
-                        <p id="form-status"></p>
-                    </form>
                 </div>
             </div>
         </section>
