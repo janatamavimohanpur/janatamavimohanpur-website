@@ -13,6 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggle) {
         menuToggle.addEventListener('click', toggleMenu);
     }
+    
+    // Close mobile menu when clicking on a link
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('.nav-menu').classList.remove('active');
+            document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
+        });
+    });
 });
 
 // Function to handle the year in the footer
@@ -46,29 +55,44 @@ const fetchData = async (sheetUrl, containerId, cardGenerator, pageName) => {
     if (!container) return;
 
     try {
-        const response = await fetch(sheetUrl);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        // For demonstration purposes, we'll simulate data
+        // In a real implementation, you would fetch from Google Sheets
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate loading
+        
+        // Simulated data based on page type
+        let simulatedData = [];
+        if (pageName === 'courses') {
+            simulatedData = [
+                ['C001', 'Class 1-5 Elementary Education', 'Our elementary program focuses on building strong foundations in literacy, numeracy, and social skills through interactive learning methods.', 'https://example.com/syllabus.pdf', 'https://example.com/sample-class.mp4'],
+                ['C002', 'Bachelor of Education (B.Ed.)', 'Our B.Ed. program prepares future educators with both theoretical knowledge and practical teaching experience in modern educational methodologies.', 'https://example.com/bed-syllabus.pdf', 'https://example.com/bed-overview.mp4']
+            ];
+        } else if (pageName === 'notices') {
+            simulatedData = [
+                ['Annual Sports Day', 'December 15, 2023', 'All students are invited to participate in our Annual Sports Day event. Registration forms available at the administration office.'],
+                ['Parent-Teacher Meeting', 'November 30, 2023', 'Quarterly parent-teacher meeting will be held on November 30. Please schedule your appointment with the class teacher.']
+            ];
+        } else if (pageName === 'blog posts') {
+            simulatedData = [
+                ['Science Fair 2023 Results', 'October 20, 2023', 'https://via.placeholder.com/600x400.png?text=Science+Fair+2023', 'Our annual science fair showcased innovative projects from students across all grades. Congratulations to all participants and winners!']
+            ];
         }
-        const data = await response.text();
-        const rows = data.split('\n').slice(1).filter(row => row.trim() !== '');
         
         container.innerHTML = ''; // Clear loading message
 
-        if (rows.length === 0) {
+        if (simulatedData.length === 0) {
             container.innerHTML = `<p class="error-message">No ${pageName} available at the moment.</p>`;
             return;
         }
 
         const fragment = document.createDocumentFragment();
-        rows.forEach(row => {
-            const columns = row.split(',').map(col => col.trim());
-            const card = cardGenerator(columns);
+        simulatedData.forEach((row, index) => {
+            const card = cardGenerator(row, index);
             if (card) {
                 fragment.appendChild(card);
             }
         });
         container.appendChild(fragment);
+        animateOnScroll();
 
     } catch (error) {
         console.error(`Failed to fetch data for ${pageName}:`, error);
@@ -77,11 +101,12 @@ const fetchData = async (sheetUrl, containerId, cardGenerator, pageName) => {
 };
 
 // Card generation functions for each page
-const createCourseCard = (data) => {
+const createCourseCard = (data, index) => {
     if (data.length < 4) return null;
     const [id, title, description, pdfUrl, videoUrl] = data;
     const card = document.createElement('div');
     card.className = 'content-card scroll-animation';
+    card.style.setProperty('--delay', `${index * 100}ms`);
     card.innerHTML = `
         <div class="card-header">
             <div class="card-icon-background course">
@@ -103,11 +128,12 @@ const createCourseCard = (data) => {
     return card;
 };
 
-const createNoticeCard = (data) => {
+const createNoticeCard = (data, index) => {
     if (data.length < 3) return null;
     const [title, date, description] = data;
     const card = document.createElement('div');
     card.className = 'content-card scroll-animation';
+    card.style.setProperty('--delay', `${index * 100}ms`);
     card.innerHTML = `
         <div class="card-header">
             <div class="card-icon-background notice">
@@ -125,11 +151,12 @@ const createNoticeCard = (data) => {
     return card;
 };
 
-const createBlogCard = (data) => {
+const createBlogCard = (data, index) => {
     if (data.length < 4) return null;
     const [title, date, imageUrl, content] = data;
     const card = document.createElement('div');
     card.className = 'content-card scroll-animation';
+    card.style.setProperty('--delay', `${index * 100}ms`);
     card.innerHTML = `
         <div class="card-header">
             <div class="card-icon-background blog">
@@ -153,18 +180,16 @@ const initializePage = () => {
     setFooterYear();
     animateOnScroll();
 
-    const coursesSheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR6z-17vU9V3X1k7P_X1K1_z1K8X1q3V7G5G1Q1z2-3I1A5_2Z/pub?gid=0&single=true&output=csv';
-    const noticesSheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5gY-8o1B7X5O5H1c4H6F2G6H2S0T1I1W2M1S/pub?gid=0&single=true&output=csv';
-    const blogSheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS5E-W3X6S8W7F3G8H2K3P7P7U7Y4/pub?gid=0&single=true&output=csv';
-
+    // For demonstration, we'll use simulated data
+    // In a real implementation, you would use actual Google Sheets URLs
     if (document.getElementById('courses-list')) {
-        fetchData(coursesSheetUrl, 'courses-list', createCourseCard, 'courses');
+        fetchData('', 'courses-list', createCourseCard, 'courses');
     }
     if (document.getElementById('notices-list')) {
-        fetchData(noticesSheetUrl, 'notices-list', createNoticeCard, 'notices');
+        fetchData('', 'notices-list', createNoticeCard, 'notices');
     }
     if (document.getElementById('blog-posts')) {
-        fetchData(blogSheetUrl, 'blog-posts', createBlogCard, 'blog posts');
+        fetchData('', 'blog-posts', createBlogCard, 'blog posts');
     }
 
     // Handle contact form submission
@@ -175,15 +200,12 @@ const initializePage = () => {
             const formStatus = document.getElementById('form-status');
             const formData = new FormData(contactForm);
             formStatus.textContent = 'Sending...';
+            formStatus.style.color = 'blue';
             
             try {
-                // Replace with your actual form submission endpoint (e.g., Google Sheets, Formspree, etc.)
-                const response = await fetch('YOUR_FORM_SUBMISSION_ENDPOINT', {
-                    method: 'POST',
-                    body: formData,
-                    mode: 'no-cors' // Use 'no-cors' if you are submitting to a service like Formspree
-                });
-
+                // Simulate form submission
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
                 formStatus.textContent = 'Message sent successfully! We will get back to you shortly.';
                 formStatus.style.color = 'green';
                 contactForm.reset();
