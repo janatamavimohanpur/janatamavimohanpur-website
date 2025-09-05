@@ -7,20 +7,21 @@
     <meta name="description" content="Official website of Shree Janata Madhyamik Vidyalaya, Mohanpur Kamalpur, Siraha. We offer comprehensive education from Class 1 to Bachelor's level, focusing on academic excellence and holistic development.">
     <meta name="keywords" content="Janata School Mohanpur, Siraha school, Nepal education, Bachelor degree Siraha, +2 college Nepal, school in Sagarmatha">
     
-    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-    <!-- PASTE YOUR FONT AWESOME KIT SCRIPT TAG HERE -->
     <script src="https://kit.fontawesome.com/your-unique-code.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">Janata MaVi, Mohanpur</div>
-            <ul>
+        <nav aria-label="Main Navigation">
+            <a href="index.html" class="logo">Janata MaVi, Mohanpur</a>
+            <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="main-menu">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="courses.html">Courses</a></li>
                 <li><a href="notices.html">Notices</a></li>
@@ -31,7 +32,6 @@
     </header>
 
     <main>
-        <!-- Hero Section remains the same -->
         <section class="hero-section">
             <div class="hero-content">
                 <h1 class="scroll-animation">Shree Janata Madhyamik Vidyalaya</h1>
@@ -40,11 +40,10 @@
             </div>
         </section>
 
-        <!-- NEW: Welcome & Features Section in Card View -->
         <section class="home-cards-section">
             <div class="home-card scroll-animation">
                 <div class="card-icon-background course">
-                    <i class="fas fa-university"></i>
+                    <i class="fas fa-university" aria-hidden="true"></i>
                 </div>
                 <h3>Our Legacy of Learning</h3>
                 <p>Located in Mohanpur Kamalpur, Siraha, our institution has been a beacon of knowledge for generations, offering a complete educational path from Class 1 to Bachelor's level.</p>
@@ -52,7 +51,7 @@
             
             <div class="home-card scroll-animation" style="--delay: 150ms;">
                 <div class="card-icon-background notice">
-                    <i class="fas fa-chalkboard-teacher"></i>
+                    <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
                 </div>
                 <h3>Expert & Dedicated Faculty</h3>
                 <p>Our team of highly qualified and experienced teachers is the backbone of our institution, committed to nurturing each student's unique potential.</p>
@@ -60,14 +59,13 @@
 
             <div class="home-card scroll-animation" style="--delay: 300ms;">
                 <div class="card-icon-background blog">
-                    <i class="fas fa-atom"></i>
+                    <i class="fas fa-atom" aria-hidden="true"></i>
                 </div>
                 <h3>Holistic Development</h3>
                 <p>We emphasize a balanced approach to education, focusing on sports, arts, and community service for the all-round development of our students.</p>
             </div>
         </section>
         
-        <!-- NEW: Call to Action Section with better alignment -->
         <section class="home-cta-section scroll-animation">
             <div class="cta-content">
                 <h2>Begin Your Journey With Us</h2>
@@ -85,9 +83,11 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Contact Us</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Mohanpur Kamalpur, Dist. Siraha, Sagarmatha Zone, Nepal</p>
-                <p><i class="fas fa-phone"></i> +977-XXXXXXXXXX</p>
-                <p><i class="fas fa-envelope"></i> info@janatamavimohanpur.com.np</p>
+                <address>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Mohanpur Kamalpur, Dist. Siraha, Sagarmatha Zone, Nepal</p>
+                    <p><a href="tel:+977-XXXXXXXXXX"><i class="fas fa-phone" aria-hidden="true"></i> +977-XXXXXXXXXX</a></p>
+                    <p><a href="mailto:info@janatamavimohanpur.com.np"><i class="fas fa-envelope" aria-hidden="true"></i> info@janatamavimohanpur.com.np</a></p>
+                </address>
             </div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
@@ -101,14 +101,14 @@
             <div class="footer-section">
                 <h4>Follow Us</h4>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Follow us on YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Shree Janata Madhyamik Vidyalaya. All rights reserved.</p>
+            <p>&copy; <span id="year"></span> Shree Janata Madhyamik Vidyalaya. All rights reserved.</p>
         </div>
     </footer>
     <script src="script.js"></script>
