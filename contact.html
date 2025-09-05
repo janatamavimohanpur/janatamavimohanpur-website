@@ -6,20 +6,21 @@
     <title>Contact Us - Shree Janata MaVi, Mohanpur</title>
     <meta name="description" content="Contact Shree Janata Madhyamik Vidyalaya for admissions, inquiries, or any other information. Find our address, phone number, and send us a message directly.">
     
-    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-    <!-- PASTE YOUR FONT AWESOME KIT SCRIPT TAG HERE -->
     <script src="https://kit.fontawesome.com/your-unique-code.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">Janata MaVi, Mohanpur</div>
-            <ul>
+        <nav aria-label="Main Navigation">
+            <a href="index.html" class="logo">Janata MaVi, Mohanpur</a>
+            <button class="menu-toggle" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="main-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="courses.html">Courses</a></li>
                 <li><a href="notices.html">Notices</a></li>
@@ -38,26 +39,57 @@
             <div class="contact-container">
                 <div class="contact-info scroll-animation">
                     <h3>Contact Information</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Mohanpur Kamalpur, Siraha, Nepal</p>
-                    <p><i class="fas fa-phone"></i> +977-XXXXXXXXXX</p>
-                    <p><i class="fas fa-envelope"></i> info@janatamavimohanpur.com.np</p>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Mohanpur Kamalpur, Siraha, Nepal</p>
+                        <p><a href="tel:+977-XXXXXXXXXX"><i class="fas fa-phone" aria-hidden="true"></i> +977-XXXXXXXXXX</a></p>
+                        <p><a href="mailto:info@janatamavimohanpur.com.np"><i class="fas fa-envelope" aria-hidden="true"></i> info@janatamavimohanpur.com.np</a></p>
+                    </address>
                 </div>
                 <form id="contact-form-element" class="contact-form scroll-animation" style="--delay: 150ms;">
                     <h3>Send us a Message</h3>
                     <label for="Name">Full Name</label>
-                    <input type="text" id="Name" name="Name" required>
+                    <input type="text" id="Name" name="Name" autocomplete="name" required>
                     <label for="Email">Email Address</label>
-                    <input type="email" id="Email" name="Email" required>
+                    <input type="email" id="Email" name="Email" autocomplete="email" required>
                     <label for="Message">Message</label>
                     <textarea id="Message" name="Message" rows="5" required></textarea>
                     <button type="submit">Send Message</button>
-                    <p id="form-status"></p>
+                    <p id="form-status" aria-live="polite"></p>
                 </form>
             </div>
         </section>
     </main>
     <footer>
-        <!-- Footer content is the same as index.html -->
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <address>
+                    <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Mohanpur Kamalpur, Dist. Siraha, Sagarmatha Zone, Nepal</p>
+                    <p><a href="tel:+977-XXXXXXXXXX"><i class="fas fa-phone" aria-hidden="true"></i> +977-XXXXXXXXXX</a></p>
+                    <p><a href="mailto:info@janatamavimohanpur.com.np"><i class="fas fa-envelope" aria-hidden="true"></i> info@janatamavimohanpur.com.np</a></p>
+                </address>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="courses.html">Our Programs</a></li>
+                    <li><a href="notices.html">Latest Notices</a></li>
+                    <li><a href="blog.html">School Blog</a></li>
+                    <li><a href="contact.html">Admission Inquiry</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Follow us on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Follow us on YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Follow us on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Shree Janata Madhyamik Vidyalaya. All rights reserved.</p>
+        </div>
     </footer>
     <script src="script.js"></script>
 </body>
