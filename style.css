@@ -1,127 +1,52 @@
+/* --- Basic Setup --- */
 :root {
-    --primary-color: #007bff; /* Simple and clean blue */
-    --background-color: #f8f9fa; /* Light grey background */
+    --primary-color: #005A9C; /* Professional Blue */
+    --secondary-color: #F0F8FF; /* Alice Blue */
     --text-color: #333;
-    --border-color: #dee2e6;
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --heading-font: 'Georgia', 'Times New Roman', serif;
+    --body-font: 'Helvetica Neue', 'Arial', sans-serif;
 }
+body { font-family: var(--body-font); margin: 0; background-color: #fff; }
+* { box-sizing: border-box; }
 
-body {
-    font-family: var(--font-family);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: #fff;
-}
-
-header {
-    background: #fff;
-    border-bottom: 1px solid var(--border-color);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-nav .logo { font-size: 1.5rem; font-weight: 600; }
+/* --- Header & Navigation --- */
+header { background: #fff; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 100; }
+nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; }
+nav .logo { font-size: 1.6rem; font-weight: bold; font-family: var(--heading-font); }
 nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
-nav ul li { margin-left: 20px; }
-nav ul li a { color: var(--text-color); text-decoration: none; font-weight: 500; }
-nav ul li a:hover { color: var(--primary-color); }
+nav ul li { margin-left: 25px; }
+nav ul li a { color: var(--text-color); text-decoration: none; font-weight: 500; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: all 0.3s; }
+nav ul li a:hover, nav ul li a.active { color: var(--primary-color); border-bottom-color: var(--primary-color); }
 
-main { padding-top: 20px; }
+/* --- Page Sections Logic --- */
+.page-section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
+.hidden { display: none; }
+.active { display: block; }
 
-section {
-    padding: 3rem 2rem;
-    max-width: 900px;
-    margin: 0 auto;
-}
+/* --- Home Page Specific Styles --- */
+.hero { text-align: center; padding: 4rem 2rem; background: var(--secondary-color); border-radius: 8px; }
+.hero h1 { font-family: var(--heading-font); font-size: 2.8rem; color: var(--primary-color); }
+.cta-button { background: var(--primary-color); color: #fff; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 1rem; display: inline-block; }
+.home-content { padding: 3rem 0; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.feature-card { background: #fff; border: 1px solid #ddd; padding: 1.5rem; text-align: center; border-radius: 8px; }
 
-section:nth-child(even) {
-    background-color: var(--background-color);
-}
+/* --- Content Item Style (for Courses, Notices, Blog) --- */
+h2 { text-align: center; font-family: var(--heading-font); font-size: 2.2rem; margin-bottom: 3rem; color: var(--primary-color); }
+.content-item { border-bottom: 1px solid #ddd; padding: 1.5rem 0; margin-bottom: 1.5rem; }
+.content-item:last-child { border-bottom: none; }
+.content-item h3 { margin-top: 0; font-size: 1.5rem; }
+.item-meta { font-size: 0.9rem; color: #777; margin: 0.5rem 0 1rem 0; }
+.item-meta span { margin-right: 1.5rem; }
+.item-links a { background: var(--primary-color); color: #fff; padding: 8px 15px; border-radius: 4px; text-decoration: none; margin-right: 10px; }
 
-.hero { text-align: center; background-color: transparent; }
-.hero h1 { font-size: 2.5rem; }
+/* --- Contact Page Styles --- */
+.contact-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; background: var(--secondary-color); padding: 2rem; border-radius: 8px; }
+.contact-info p { line-height: 1.8; }
+.contact-form label { display: block; margin-bottom: 5px; font-weight: bold; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 10px; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 4px; }
+.contact-form button { width: 100%; padding: 12px; background: var(--primary-color); color: #fff; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; }
+#form-status { margin-top: 1rem; text-align: center; }
 
-h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    color: #333;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 10px;
-    display: inline-block;
-}
-
-.section-header { text-align: center; } /* For centering the H2 */
-
-/* The new list-item style */
-.content-item {
-    background: #fff;
-    border: 1px solid var(--border-color);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.content-item img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 1rem;
-}
-
-.content-item h3 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-    font-size: 1.4rem;
-}
-
-.item-meta {
-    font-size: 0.9rem;
-    color: #6c757d;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 1rem;
-}
-
-.item-meta span {
-    margin-right: 1rem;
-}
-
-.item-description {
-    margin-bottom: 1.5rem;
-}
-
-.item-links a {
-    text-decoration: none;
-    background-color: var(--primary-color);
-    color: #fff;
-    padding: 10px 18px;
-    border-radius: 4px;
-    margin-right: 10px;
-    font-size: 0.9rem;
-    display: inline-block;
-}
-
-.item-links a:hover {
-    background-color: #0056b3;
-}
-
-footer {
-    background: #343a40;
-    color: #fff;
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 2rem;
-}
+/* --- Footer --- */
+footer { background: #333; color: #fff; text-align: center; padding: 2rem 0; margin-top: 2rem; }
