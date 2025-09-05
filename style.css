@@ -47,7 +47,7 @@ nav .logo {
     font-size: 1.5rem; 
     font-weight: 700; 
     color: var(--dark-blue); 
-    text-decoration: none; /* Make logo a link */
+    text-decoration: none; 
 }
 nav ul { 
     list-style: none; 
@@ -143,7 +143,7 @@ footer {
     color: var(--secondary-color);
 }
 .footer-section address, .footer-section p {
-    font-style: normal; /* Fix address tag styling */
+    font-style: normal;
     line-height: 1.8;
 }
 .social-icons a { 
@@ -165,7 +165,7 @@ footer {
 
 /* --- 3. Home Page Styles --- */
 .hero-section { 
-    min-height: 90vh; /* Use min-height for better adaptability */
+    min-height: 90vh;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); 
     display: flex; 
     align-items: center; 
@@ -175,7 +175,7 @@ footer {
     padding: 2rem;
 }
 .hero-content h1 { 
-    font-size: clamp(2rem, 5vw, 3.5rem); /* Responsive font size */
+    font-size: clamp(2rem, 5vw, 3.5rem); 
     color: var(--white); 
     text-shadow: 0 2px 5px rgba(0,0,0,0.2); 
     margin-bottom: 0.5rem;
@@ -192,17 +192,17 @@ footer {
     border-radius: 50px; 
     font-weight: bold; 
     transition: all 0.3s ease; 
-    display: inline-block; /* Fix padding issue */
+    display: inline-block; 
 }
 .cta-button:hover { 
     transform: translateY(-3px); 
     box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
 }
 
-/* --- NEW: Home Page Card Section Styles --- */
+/* --- Home Page Card Section Styles --- */
 .home-cards-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Better min-width for mobile */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
     max-width: 1200px;
     margin: -80px auto 4rem auto; 
@@ -234,7 +234,96 @@ footer {
     line-height: 1.8;
 }
 
-/* --- NEW: Home Page Call to Action Section --- */
+/* --- NEW: About Us Section --- */
+.about-us-section {
+    padding-top: 0;
+}
+.about-us-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+.about-image {
+    flex: 1;
+    min-width: 300px;
+}
+.about-image img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+.about-text {
+    flex: 2;
+    min-width: 300px;
+}
+.about-text h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-top: 0;
+}
+.about-text p {
+    color: var(--grey-text);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+/* --- NEW: Testimonials Section --- */
+.testimonials-section {
+    background: var(--white);
+    padding: 4rem 2rem;
+    margin: 4rem 0;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+}
+.testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.testimonial-card {
+    background: var(--light-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+.testimonial-card .quote {
+    font-style: italic;
+    color: var(--grey-text);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+.testimonial-card .author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.testimonial-card .author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.testimonial-card .author-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+.testimonial-card .author-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--grey-text);
+}
+.section-title {
+    text-align: center;
+    font-size: clamp(2.5rem, 5vw, 3rem);
+    margin-bottom: 3rem;
+    color: var(--dark-blue);
+}
+
+/* --- Home Page Call to Action Section --- */
 .home-cta-section {
     max-width: 1200px;
     margin: 4rem auto;
@@ -306,7 +395,7 @@ footer {
 }
 .card-container { 
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Better for mobile devices */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 2.5rem; 
 }
 .content-card { 
@@ -352,7 +441,7 @@ footer {
 }
 .card-body { 
     padding: 0 2rem 2rem 2rem; 
-    flex-grow: 1; /* Make sure card bodies are same height */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
@@ -361,7 +450,7 @@ footer {
     border-radius: 8px; 
     margin: 1.5rem 0; 
     object-fit: cover; 
-    height: 200px; /* Consistent image height */
+    height: 200px; 
 }
 .card-description { 
     color: var(--grey-text); 
@@ -372,7 +461,7 @@ footer {
     margin-top: 1.5rem; 
     display: flex; 
     gap: 1rem; 
-    flex-wrap: wrap; /* Ensure buttons wrap on small screens */
+    flex-wrap: wrap; 
 }
 .card-button { 
     text-decoration: none; 
@@ -396,7 +485,7 @@ footer {
 .contact-section { 
     max-width: 1000px; 
     margin: 0 auto; 
-    padding: 0 2rem 4rem 2rem; /* Add padding to match others */
+    padding: 0 2rem 4rem 2rem; 
 } 
 .contact-container { 
     display: grid; 
