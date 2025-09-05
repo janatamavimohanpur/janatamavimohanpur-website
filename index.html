@@ -7,52 +7,90 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
         <nav>
             <div class="logo">Janata MaVi Mohanpur</div>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#notices">Notices</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#courses" class="nav-link">Courses</a></li>
+                <li><a href="#notices" class="nav-link">Notices</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <h1>Welcome to Janata Mahavidyalaya, Mohanpur</h1>
-            <p>Your future starts here. Quality education for all.</p>
+        <!-- Home Page Section -->
+        <section id="home" class="page-section active">
+            <div class="hero">
+                <h1>Welcome to Janata Mahavidyalaya, Mohanpur</h1>
+                <p>Empowering the next generation with quality education.</p>
+                <a href="#courses" class="cta-button nav-link">Explore Our Courses</a>
+            </div>
+            <div class="home-content">
+                <h2>About Our Institution</h2>
+                <p>Founded with a vision to provide accessible and quality education, Janata MaVi has been a pillar of learning in the Mohanpur community for decades. We believe in fostering not just academic excellence, but also character, discipline, and a passion for lifelong learning.</p>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>Expert Faculty</h3>
+                        <p>Our teachers are experienced, dedicated, and committed to student success.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Modern Curriculum</h3>
+                        <p>We follow an updated curriculum to prepare students for future challenges.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Positive Environment</h3>
+                        <p>A safe, supportive, and engaging atmosphere for all students.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="courses">
+        <!-- Other Pages (Initially Hidden) -->
+        <section id="courses" class="page-section hidden">
             <h2>Our Courses & Materials</h2>
-            <div id="courses-list"> <!-- Removed card-container class -->
-                <p>Loading courses...</p>
-            </div>
+            <div id="courses-list"></div>
         </section>
 
-        <section id="notices">
+        <section id="notices" class="page-section hidden">
             <h2>Important Notices</h2>
-            <div id="notices-list"> <!-- Removed card-container class -->
-                 <p>Loading notices...</p>
-            </div>
+            <div id="notices-list"></div>
         </section>
 
-        <section id="blog">
+        <section id="blog" class="page-section hidden">
             <h2>School Blog & Events</h2>
-            <div id="blog-posts"> <!-- Removed card-container class -->
-                 <p>Loading blog posts...</p>
-            </div>
+            <div id="blog-posts"></div>
         </section>
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p><strong>Address:</strong> Mohanpur, Saptari, Nepal</p>
-            <p><strong>Email:</strong> info@janatamavimohanpur.com.np</p>
-            <p><strong>Phone:</strong> +977-XXXXXXXXXX</p>
+        <!-- Contact Page Section -->
+        <section id="contact" class="page-section hidden">
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><strong>Address:</strong> Mohanpur, Saptari, Nepal</p>
+                    <p><strong>Email:</strong> info@janatamavimohanpur.com.np</p>
+                    <p><strong>Phone:</strong> +977-XXXXXXXXXX</p>
+                </div>
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contact-form-element">
+                        <label for="Name">Full Name</label>
+                        <input type="text" id="Name" name="Name" required>
+                        
+                        <label for="Email">Email Address</label>
+                        <input type="email" id="Email" name="Email" required>
+                        
+                        <label for="Message">Message</label>
+                        <textarea id="Message" name="Message" rows="5" required></textarea>
+                        
+                        <button type="submit">Send Message</button>
+                        <p id="form-status"></p>
+                    </form>
+                </div>
+            </div>
         </section>
     </main>
 
